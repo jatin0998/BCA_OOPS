@@ -3,7 +3,135 @@
 #2:
 
 #3:
+#include <iostream>
+#include <cstring>
+
+class Students {
+private:
+    char name[50];
+    int marks[5];
+    float calculatePercentage() {
+        float total = 0;
+        for (int i = 0; i < 5; ++i) {
+            total += marks[i];
+        }
+        return (total / 5);
+    }
+public:
+    void getDetails() {
+        std::cout << "Enter student name: ";
+        std::cin.getline(name, 50);
+        std::cout << "Enter marks for five subjects:\n";
+        for (int i = 0; i < 5; ++i) {
+            std::cout << "Subject " << i+1 << ": ";
+            std::cin >> marks[i];
+        }
+        std::cin.ignore(); // Ignore newline character in input buffer
+    }
+    
+    void displayDetails() {
+        std::cout << "Student Name: " << name << std::endl;
+        std::cout << "Marks: ";
+        for (int i = 0; i < 5; ++i) {
+            std::cout << marks[i] << " ";
+        }
+        std::cout << std::endl;
+        
+        float percentage = calculatePercentage();
+        char grade;
+        if (percentage > 80) {
+            grade = 'E';
+        } else if (percentage >= 70) {
+            grade = 'A';
+        } else if (percentage >= 60) {
+            grade = 'B';
+        } else if (percentage >= 50) {
+            grade = 'C';
+        } else {
+            grade = 'F';
+        }
+        std::cout << "Grade: " << grade << std::endl;
+    }
+};
+
+int main() {
+    Students student;
+    student.getDetails();
+    student.displayDetails();
+    return 0;
+}
 
 #4:
+#include <iostream>
+#include <string>
 
+class Converter {
+private:
+    int numbers[5];
+    std::string words[5];
+
+    void convertToWords(int num) {
+        switch (num) {
+            case 0:
+                words[num] = "Zero";
+                break;
+            case 1:
+                words[num] = "One";
+                break;
+            case 2:
+                words[num] = "Two";
+                break;
+            case 3:
+                words[num] = "Three";
+                break;
+            case 4:
+                words[num] = "Four";
+                break;
+            case 5:
+                words[num] = "Five";
+                break;
+            case 6:
+                words[num] = "Six";
+                break;
+            case 7:
+                words[num] = "Seven";
+                break;
+            case 8:
+                words[num] = "Eight";
+                break;
+            case 9:
+                words[num] = "Nine";
+                break;
+        }
+    }
+
+public:
+    void acceptNumbers() {
+        std::cout << "Enter five integers from 0 to 9: ";
+        for (int i = 0; i < 5; ++i) {
+            std::cin >> numbers[i];
+        }
+    }
+
+    void convertToWords() {
+        for (int i = 0; i < 5; ++i) {
+            convertToWords(numbers[i]);
+        }
+    }
+
+    void displayWords() {
+        for (int i = 0; i < 5; ++i) {
+            std::cout << words[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    Converter converter;
+    converter.acceptNumbers();
+    converter.convertToWords();
+    converter.displayWords();
+    return 0;
+}
 #5:
