@@ -1,0 +1,375 @@
+#-----------------------------------------------------------
+# 1 : Completethegiven below code, it is strictly recommended to define the member functions outside of the class and not to include any namespace in your code.
+
+#include<iostream>
+
+using namespace std;
+
+class Box{
+
+private:
+
+int length;
+
+int width;
+
+public:
+
+void getDimensions();
+
+Class
+
+};
+
+void showDimensions();
+
+box 1
+
+box 2
+
+box n
+
+Objects
+
+#-----------------------------------------------------------
+#include<iostream>
+
+using namespace std;
+
+class Box {
+private:
+    int length;
+    int width;
+public:
+    void getDimensions();
+    void showDimensions();
+};
+
+void Box::getDimensions() {
+    cout << "Enter length: ";
+    cin >> length;
+    cout << "Enter width: ";
+    cin >> width;
+}
+
+void Box::showDimensions() {
+    cout << "Length: " << length << ", Width: " << width << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of boxes: ";
+    cin >> n;
+
+    Box boxes[n];
+    for (int i = 0; i < n; ++i) {
+        cout << "Box " << i + 1 << ":\n";
+        boxes[i].getDimensions();
+    }
+
+    cout << "Dimensions of the boxes:\n";
+    for (int i = 0; i < n; ++i) {
+        cout << "Box " << i + 1 << ": ";
+        boxes[i].showDimensions();
+    }
+
+    return 0;
+}
+#-----------------------------------------------------------
+# 2 : Completethegiven code snippet which contains two data memberse.g.principal andtime which are mapped with objects and one data member, interest which is not mapped with any of the object.
+
+#include<iostream using namespace std;
+
+class Banking
+
+private:
+
+static float interest;
+
+int principal:
+
+int time; //in months only string arr2[size];
+
+public:
+
+void getdata()
+
+// write code to get values for principal amount and tive
+
+void Calculate_SI()
+
+//write code to calculate SI
+
+int main() K
+
+float Banking:: interest-2;
+
+Banking b1,b2;
+#-----------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class Banking {
+private:
+    static float interest;
+    int principal;
+    int time; // in months only
+    static const int size = 50;
+    string arr2[size];
+
+public:
+    void getdata();
+    void Calculate_SI();
+};
+
+float Banking::interest = 2;
+
+void Banking::getdata() {
+    cout << "Enter principal amount: ";
+    cin >> principal;
+    cout << "Enter time (in months): ";
+    cin >> time;
+}
+
+void Banking::Calculate_SI() {
+    float SI = (principal * interest * time) / 100;
+    cout << "Simple Interest: " << SI << endl;
+}
+
+int main() {
+    Banking b1, b2;
+
+    b1.getdata();
+    b1.Calculate_SI();
+
+    return 0;
+}
+
+#-----------------------------------------------------------
+#3 :Write a programin C++which contains aclass Students, two members memberfunction with same name (signature of the function may be different) to get and display the details of the studentas given below:
+
+Name (character array)
+
+Marks (for five subjects)
+
+Grade(>80%: E, 70-80%: A, 60-70%: 8,50-60%: Candless than 50%: F)
+#-----------------------------------------------------------
+#include <iostream>
+#include <cstring>
+
+class Students {
+private:
+    char name[50];
+    int marks[5];
+    float calculatePercentage() {
+        float total = 0;
+        for (int i = 0; i < 5; ++i) {
+            total += marks[i];
+        }
+        return (total / 5);
+    }
+public:
+    void getDetails() {
+        std::cout << "Enter student name: ";
+        std::cin.getline(name, 50);
+        std::cout << "Enter marks for five subjects:\n";
+        for (int i = 0; i < 5; ++i) {
+            std::cout << "Subject " << i+1 << ": ";
+            std::cin >> marks[i];
+        }
+        std::cin.ignore(); // Ignore newline character in input buffer
+    }
+    
+    void displayDetails() {
+        std::cout << "Student Name: " << name << std::endl;
+        std::cout << "Marks: ";
+        for (int i = 0; i < 5; ++i) {
+            std::cout << marks[i] << " ";
+        }
+        std::cout << std::endl;
+        
+        float percentage = calculatePercentage();
+        char grade;
+        if (percentage > 80) {
+            grade = 'E';
+        } else if (percentage >= 70) {
+            grade = 'A';
+        } else if (percentage >= 60) {
+            grade = 'B';
+        } else if (percentage >= 50) {
+            grade = 'C';
+        } else {
+            grade = 'F';
+        }
+        std::cout << "Grade: " << grade << std::endl;
+    }
+};
+
+int main() {
+    Students student;
+    student.getDetails();
+    student.displayDetails();
+    return 0;
+}
+
+#-----------------------------------------------------------
+#4 : Write a program in C++with one member function to accept five integers from 0 to 9 and another function to display the equivalent values in word as shown below. The converted values should be stored in one of the member variables.
+
+Input
+
+2
+
+4
+
+7
+
+Output
+
+Two
+
+Four
+
+Zero
+
+One
+
+Seven
+#-----------------------------------------------------------
+#include <iostream>
+#include <string>
+
+class Converter {
+private:
+    int numbers[5];
+    std::string words[5];
+
+    void convertToWords(int num) {
+        switch (num) {
+            case 0:
+                words[num] = "Zero";
+                break;
+            case 1:
+                words[num] = "One";
+                break;
+            case 2:
+                words[num] = "Two";
+                break;
+            case 3:
+                words[num] = "Three";
+                break;
+            case 4:
+                words[num] = "Four";
+                break;
+            case 5:
+                words[num] = "Five";
+                break;
+            case 6:
+                words[num] = "Six";
+                break;
+            case 7:
+                words[num] = "Seven";
+                break;
+            case 8:
+                words[num] = "Eight";
+                break;
+            case 9:
+                words[num] = "Nine";
+                break;
+        }
+    }
+
+public:
+    void acceptNumbers() {
+        std::cout << "Enter five integers from 0 to 9: ";
+        for (int i = 0; i < 5; ++i) {
+            std::cin >> numbers[i];
+        }
+    }
+
+    void convertToWords() {
+        for (int i = 0; i < 5; ++i) {
+            convertToWords(numbers[i]);
+        }
+    }
+
+    void displayWords() {
+        for (int i = 0; i < 5; ++i) {
+            std::cout << words[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    Converter converter;
+    converter.acceptNumbers();
+    converter.convertToWords();
+    converter.displayWords();
+    return 0;
+}
+#-----------------------------------------------------------
+#5 : Createyourown header file named as Find_Calculation which consists of three important functions that accepts and return double value(s) to compute the square root, cube and power of integer values respectively. Add this library in your C++ code and call these functions to perform the mathematical calculations.
+
+Note: Students are not allowed to use the readymade functions
+
+#include<iostream>
+
+#include "Find Calculation"
+
+using namespace std; int main()
+
+{ double n1, n2, result;
+
+//Get vaues for nå and n2 from user
+
+result find Sqrt(n1);
+
+//display square root of a function here
+
+result=find_Cube(n1);
+
+//display cube of ni here result=find_ Pow(n1, n2);
+
+//display ni raised to power n2 here
+#-----------------------------------------------------------
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double find_Sqrt(double n) {
+    return sqrt(n);
+}
+
+double find_Cube(double n) {
+    return n * n * n;
+}
+
+double find_Pow(double n, double exp) {
+    return pow(n, exp);
+}
+
+int main() {
+    double n1, n2, result;
+
+    cout << "Enter a number: ";
+    cin >> n1;
+
+    result = find_Sqrt(n1);
+    cout << "Square root of " << n1 << " is: " << result << endl;
+
+    result = find_Cube(n1);
+    cout << "Cube of " << n1 << " is: " << result << endl;
+
+    cout << "Enter another number for exponentiation: ";
+    cin >> n2;
+
+    result = find_Pow(n1, n2);
+    cout << n1 << " raised to the power of " << n2 << " is: " << result << endl;
+
+    return 0;
+}
+
+
+
+#-----------------------------------------------------------
